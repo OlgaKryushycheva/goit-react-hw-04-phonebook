@@ -13,7 +13,6 @@ export function App() {
 
   const addContact = newContact => {
     const isExist = contacts.find(contact => contact.name === newContact.name);
-    console.log('addContact');
 
     if (isExist) {
       alert(`${newContact.name} ia already in contacts`);
@@ -24,23 +23,19 @@ export function App() {
 
   const deliteContact = contactId => {
     setContacts(contacts.filter(contact => contact.id !== contactId));
-    console.log('deliteContact');
   };
 
   const changeFilter = evt => {
     setFilter(evt.currentTarget.value);
-    console.log('changeFilter');
   };
 
   const filterContact = () => {
-    console.log('filterContact');
     return contacts.filter(contact =>
       contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
     );
   };
 
   const filteredContact = filterContact();
-  console.log(filteredContact);
 
   return (
     <Container>
